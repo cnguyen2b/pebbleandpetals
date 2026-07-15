@@ -23,7 +23,11 @@
       --cream: #faf8f5;
       --charcoal: #2a2826;
       --warm-white: #fdfbf9;
-      --muted: #8a827c;
+      --muted: #5c534e;
+      /* Tu Planners accent */
+      --tp-gold: #c9a96e;
+      --tp-gold-dark: #9a7a3f;
+      --tp-cream: #fdf6ee;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -49,22 +53,16 @@
       text-decoration: none; color: var(--charcoal);
     }
     .nav-logo-icon {
-      width: 36px; height: 36px;
-      border-radius: 50%;
+      width: 36px; height: 36px; border-radius: 50%;
       background: linear-gradient(135deg, var(--sage), var(--petal-mid));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
+      display: flex; align-items: center; justify-content: center; font-size: 16px;
     }
     .nav-logo-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px; font-weight: 300;
-      letter-spacing: 0.08em;
-      color: var(--charcoal);
+      font-size: 22px; font-weight: 300; letter-spacing: 0.08em; color: var(--charcoal);
     }
-    .nav-logo-text em {
-      font-style: italic; color: var(--rose);
-    }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-logo-text em { font-style: italic; color: var(--rose); }
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
     .nav-links a {
       font-size: 12px; font-weight: 500; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--charcoal); text-decoration: none;
@@ -76,6 +74,14 @@
     }
     .nav-links a:hover { color: var(--green-dark); }
     .nav-links a:hover::after { width: 100%; }
+    .nav-tp {
+      padding: 7px 18px; background: var(--tp-gold); color: var(--tp-cream);
+      font-family: 'Quicksand', sans-serif; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+      transition: background 0.3s, transform 0.3s; white-space: nowrap;
+    }
+    .nav-tp:hover { background: var(--tp-gold-dark); transform: translateY(-1px); }
+    .nav-tp::after { display: none; }
     .nav-cta {
       padding: 10px 24px; background: transparent; border: 1px solid var(--green);
       color: var(--green-dark); font-family: 'Quicksand', sans-serif;
@@ -128,6 +134,13 @@
       text-transform: uppercase; text-decoration: none; transition: background 0.3s ease;
     }
     .mobile-menu-cta:hover { background: var(--green-dark); }
+    .mobile-tp {
+      padding: 12px 28px; background: var(--tp-gold); color: var(--tp-cream);
+      font-family: 'Quicksand', sans-serif; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .mobile-tp:hover { background: var(--tp-gold-dark); }
 
     /* HERO */
     .hero { padding-top: 96px; }
@@ -151,11 +164,10 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(20px, 2.5vw, 28px);
       font-style: italic; font-weight: 300;
-      color: var(--green-dark); margin-bottom: 32px;
-      line-height: 1.4;
+      color: var(--green-dark); margin-bottom: 32px; line-height: 1.4;
     }
     .hero-body {
-      font-size: 15px; font-weight: 300; line-height: 1.85;
+      font-size: 15px; font-weight: 400; line-height: 1.85;
       color: var(--muted); max-width: 500px; margin-bottom: 40px;
     }
     .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -191,7 +203,7 @@
       font-size: 18px; font-style: italic; color: var(--green-dark); opacity: 0.6;
     }
 
-    /* SHARED SECTION STYLES */
+    /* SHARED */
     .section-tag {
       font-size: 11px; font-weight: 500; letter-spacing: 0.3em;
       text-transform: uppercase; color: var(--green); margin-bottom: 16px;
@@ -203,7 +215,7 @@
     }
     .section-title em { font-style: italic; color: var(--rose); }
     .section-body {
-      font-size: 15px; font-weight: 300; line-height: 1.9; color: var(--muted); margin-bottom: 20px;
+      font-size: 15px; font-weight: 400; line-height: 1.9; color: var(--muted); margin-bottom: 20px;
     }
     .divider {
       display: flex; align-items: center; justify-content: center; gap: 20px;
@@ -215,14 +227,13 @@
       background: linear-gradient(to right, transparent, var(--sage), transparent);
     }
 
-    /* COLLECTION / SHOP */
+    /* COLLECTION */
     .collection { padding: 100px 80px; background: var(--warm-white); }
     .collection-header { text-align: center; margin-bottom: 48px; }
     .collection-subtitle {
       text-align: center; max-width: 600px; margin: 0 auto 48px;
-      font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.7;
+      font-size: 15px; font-weight: 400; color: var(--muted); line-height: 1.7;
     }
-
     .collection-tabs {
       display: flex; gap: 36px; justify-content: center;
       border-bottom: 1px solid rgba(184,212,192,0.35);
@@ -234,30 +245,21 @@
       font-family: 'Cormorant Garamond', serif; font-size: 20px;
       font-weight: 400; font-style: italic; color: var(--muted);
       cursor: pointer; letter-spacing: 0.02em;
-      transition: color 0.3s ease, border-color 0.3s ease;
-      white-space: nowrap;
+      transition: color 0.3s ease, border-color 0.3s ease; white-space: nowrap;
     }
     .collection-tab:hover { color: var(--charcoal); }
     .collection-tab.active { color: var(--charcoal); border-bottom-color: var(--green); }
-
     .collection-panel { display: none; }
     .collection-panel.active { display: block; }
-    .product-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
-    }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
     .product-card {
-      background: var(--warm-white);
-      border: 1px solid rgba(184,212,192,0.25);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      cursor: pointer;
+      background: var(--warm-white); border: 1px solid rgba(184,212,192,0.25);
+      transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: pointer;
     }
     .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(42,40,38,0.08);
+      transform: translateY(-6px); box-shadow: 0 16px 40px rgba(42,40,38,0.08);
     }
-    .product-img {
-      width: 100%; aspect-ratio: 4/5; overflow: hidden;
-    }
+    .product-img { width: 100%; aspect-ratio: 4/5; overflow: hidden; }
     .product-img .product-placeholder,
     .portfolio-img .product-placeholder {
       width: 100%; height: 100%;
@@ -272,22 +274,20 @@
       letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--green-dark); opacity: 0.5;
     }
-    /* Alternate placeholder gradients for visual variety */
     .product-placeholder.grad-1 { background: linear-gradient(145deg, var(--fern), var(--petal) 80%); }
     .product-placeholder.grad-2 { background: linear-gradient(145deg, var(--petal), var(--fern) 80%); }
     .product-placeholder.grad-3 { background: linear-gradient(145deg, var(--fern), var(--sage) 80%); }
     .product-placeholder.grad-4 { background: linear-gradient(145deg, var(--petal), var(--blush) 80%); }
     .product-placeholder.grad-5 { background: linear-gradient(145deg, var(--sage), var(--petal) 80%); }
     .product-placeholder.grad-6 { background: linear-gradient(145deg, var(--blush), var(--fern) 80%); }
-
     .product-info { padding: 24px; }
     .product-name {
       font-family: 'Cormorant Garamond', serif; font-size: 22px;
       font-weight: 400; color: var(--charcoal); margin-bottom: 6px;
     }
     .product-desc {
-      font-size: 13px; font-weight: 300; color: var(--muted);
-      line-height: 1.6; margin-bottom: 16px;
+      font-size: 13px; font-weight: 400; color: var(--muted);
+      line-height: 1.7; margin-bottom: 16px;
     }
     .product-bottom {
       display: flex; justify-content: space-between; align-items: center;
@@ -304,28 +304,23 @@
     }
     .product-order:hover { color: var(--green-deep); }
 
-    /* EVENTS & WEDDINGS PORTFOLIO */
+    /* PORTFOLIO */
     .portfolio { padding: 100px 80px; background: var(--fern); }
     .portfolio-header { text-align: center; margin-bottom: 48px; }
     .portfolio-subtitle {
       max-width: 600px; margin: 16px auto 0;
-      font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.7;
+      font-size: 15px; font-weight: 400; color: var(--muted); line-height: 1.7;
     }
     .portfolio-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
-      margin-bottom: 56px;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-bottom: 56px;
     }
     .portfolio-card {
-      background: var(--warm-white);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      overflow: hidden;
+      background: var(--warm-white); transition: transform 0.4s ease, box-shadow 0.4s ease; overflow: hidden;
     }
     .portfolio-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(42,40,38,0.08);
+      transform: translateY(-6px); box-shadow: 0 16px 40px rgba(42,40,38,0.08);
     }
     .portfolio-img { width: 100%; aspect-ratio: 3/2; overflow: hidden; }
-    .portfolio-card:hover .product-placeholder { transform: scale(1.03); }
     .portfolio-info { padding: 28px; }
     .portfolio-type {
       font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
@@ -337,24 +332,17 @@
       font-family: 'Cormorant Garamond', serif; font-size: 26px;
       font-weight: 400; color: var(--charcoal); margin-bottom: 8px;
     }
-    .portfolio-desc {
-      font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.7;
-    }
+    .portfolio-desc { font-size: 13px; font-weight: 400; color: var(--muted); line-height: 1.7; }
     .portfolio-services {
-      max-width: 800px; margin: 0 auto 48px;
-      padding: 40px; background: var(--warm-white);
+      max-width: 800px; margin: 0 auto 48px; padding: 40px; background: var(--warm-white);
     }
     .portfolio-services-title {
       font-family: 'Cormorant Garamond', serif; font-size: 22px;
-      font-weight: 400; color: var(--charcoal); text-align: center;
-      margin-bottom: 28px;
+      font-weight: 400; color: var(--charcoal); text-align: center; margin-bottom: 28px;
     }
-    .portfolio-services-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 12px 40px;
-    }
+    .portfolio-services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 40px; }
     .portfolio-service-item {
-      font-size: 14px; font-weight: 300; color: var(--muted);
-      line-height: 1.6; padding: 8px 0;
+      font-size: 14px; font-weight: 400; color: var(--muted); line-height: 1.6; padding: 8px 0;
     }
     .portfolio-cta { text-align: center; }
     .portfolio-sister {
@@ -367,9 +355,7 @@
       border-bottom: 1px solid rgba(90,138,110,0.3);
       transition: border-color 0.3s, color 0.3s;
     }
-    .portfolio-sister a:hover {
-      color: var(--green-deep); border-bottom-color: var(--green);
-    }
+    .portfolio-sister a:hover { color: var(--green-deep); border-bottom-color: var(--green); }
 
     /* PROCESS */
     .process { padding: 100px 80px; background: var(--charcoal); color: var(--fern); }
@@ -378,7 +364,7 @@
     .process-header { text-align: center; margin-bottom: 24px; }
     .process-subtitle {
       text-align: center; max-width: 600px; margin: 0 auto 72px;
-      font-size: 15px; font-weight: 300; color: rgba(230,240,232,0.6); line-height: 1.7;
+      font-size: 15px; font-weight: 400; color: rgba(230,240,232,0.7); line-height: 1.7;
     }
     .process-steps {
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px;
@@ -401,8 +387,7 @@
       font-weight: 400; color: var(--fern); margin-bottom: 12px;
     }
     .process-step-body {
-      font-size: 13.5px; font-weight: 300; line-height: 1.75;
-      color: rgba(230,240,232,0.6);
+      font-size: 13.5px; font-weight: 400; line-height: 1.75; color: rgba(230,240,232,0.7);
     }
 
     /* ABOUT */
@@ -410,10 +395,7 @@
       padding: 100px 80px;
       display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
     }
-    .about-image {
-      height: 520px; overflow: hidden;
-      box-shadow: 0 8px 30px rgba(42,40,38,0.10);
-    }
+    .about-image { height: 520px; overflow: hidden; box-shadow: 0 8px 30px rgba(42,40,38,0.10); }
     .about-placeholder {
       width: 100%; height: 100%;
       display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
@@ -422,8 +404,7 @@
     .about-placeholder-icon { font-size: 48px; opacity: 0.35; }
     .about-placeholder-label {
       font-family: 'Quicksand', sans-serif; font-size: 10px; font-weight: 500;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--green-dark); opacity: 0.4;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-dark); opacity: 0.4;
     }
     .about-signature { margin-top: 32px; }
     .about-signature-names {
@@ -439,10 +420,7 @@
     /* FAQ */
     .faq { padding: 100px 80px; background: var(--fern); }
     .faq-header { text-align: center; margin-bottom: 56px; }
-    .faq-list {
-      max-width: 860px; margin: 0 auto;
-      border-top: 1px solid rgba(122,171,142,0.3);
-    }
+    .faq-list { max-width: 860px; margin: 0 auto; border-top: 1px solid rgba(122,171,142,0.3); }
     .faq-item { border-bottom: 1px solid rgba(122,171,142,0.3); }
     .faq-item summary {
       list-style: none; cursor: pointer; padding: 28px 56px 28px 4px;
@@ -470,8 +448,14 @@
     .faq-item summary:hover .faq-toggle { background: rgba(122,171,142,0.15); }
     .faq-answer {
       padding: 0 56px 28px 4px; animation: faqOpen 0.4s ease;
-      font-size: 14.5px; font-weight: 300; line-height: 1.85; color: var(--muted);
+      font-size: 14.5px; font-weight: 400; line-height: 1.85; color: var(--muted);
     }
+    .faq-answer a {
+      color: var(--green-dark); text-decoration: none;
+      border-bottom: 1px solid rgba(90,138,110,0.3);
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .faq-answer a:hover { color: var(--green-deep); border-bottom-color: var(--green); }
     @keyframes faqOpen {
       from { opacity: 0; transform: translateY(-6px); }
       to { opacity: 1; transform: translateY(0); }
@@ -492,7 +476,7 @@
     .form-input, .form-select, .form-textarea {
       padding: 14px 16px; background: var(--fern);
       border: 1px solid rgba(122,171,142,0.3); color: var(--charcoal);
-      font-family: 'Quicksand', sans-serif; font-size: 14px; font-weight: 300;
+      font-family: 'Quicksand', sans-serif; font-size: 14px; font-weight: 400;
       outline: none; transition: border-color 0.3s; width: 100%;
       box-sizing: border-box; min-height: 48px;
       -webkit-appearance: none; appearance: none; border-radius: 0;
@@ -511,7 +495,6 @@
       cursor: pointer; transition: background 0.3s;
     }
     .form-submit:hover { background: var(--green-dark); }
-
     .contact-info { padding-top: 16px; }
     .contact-detail {
       display: flex; align-items: flex-start; gap: 16px;
@@ -524,16 +507,11 @@
       font-family: 'Cormorant Garamond', serif; font-size: 18px;
       color: var(--charcoal); margin-bottom: 6px;
     }
-    .contact-detail-text {
-      font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.7;
-    }
+    .contact-detail-text { font-size: 14px; font-weight: 400; color: var(--muted); line-height: 1.7; }
     .contact-detail-text a { color: inherit; text-decoration: none; }
 
     /* FOOTER */
-    footer {
-      background: var(--charcoal); padding: 60px 80px 40px;
-      color: rgba(230,240,232,0.6);
-    }
+    footer { background: var(--charcoal); padding: 60px 80px 40px; color: rgba(230,240,232,0.6); }
     .footer-top {
       display: flex; justify-content: space-between; align-items: center;
       margin-bottom: 48px; padding-bottom: 48px;
@@ -549,24 +527,18 @@
       font-style: italic; color: var(--sage); margin-top: 6px;
     }
     .footer-tu {
-      font-size: 12px; font-weight: 300; color: rgba(230,240,232,0.4);
-      letter-spacing: 0.05em;
+      font-size: 12px; font-weight: 400; color: rgba(230,240,232,0.4); letter-spacing: 0.05em;
     }
     .footer-tu a { color: var(--sage); text-decoration: none; transition: color 0.3s; }
     .footer-tu a:hover { color: var(--fern); }
-    .footer-bottom {
-      display: flex; justify-content: space-between; font-size: 12px; font-weight: 300;
-    }
+    .footer-bottom { display: flex; justify-content: space-between; font-size: 12px; font-weight: 400; }
 
     /* ANIMATIONS */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     .hero-left { animation: fadeUp 0.9s ease both; }
     .hero-right { animation: fadeIn 1.1s ease 0.2s both; }
     .reveal {
@@ -613,6 +585,7 @@
     <li><a href="#about">Our Story</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.tuplanners.com" target="_blank" class="nav-tp">Tu Planners ✦</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Get in Touch</a>
   <button class="nav-toggle" id="navToggle" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
@@ -627,9 +600,9 @@
   <a href="#about" class="mobile-link" onclick="closeMenu()">Our Story</a>
   <a href="#faq" class="mobile-link" onclick="closeMenu()">FAQ</a>
   <a href="#contact" class="mobile-menu-cta" onclick="closeMenu()">Get in Touch</a>
+  <a href="https://www.tuplanners.com" target="_blank" class="mobile-tp" onclick="closeMenu()">Tu Planners ✦</a>
 </div>
 
-<!-- ============ HERO ============ -->
 <section class="hero">
   <div class="hero-grid">
     <div class="hero-left">
@@ -645,7 +618,6 @@
       </div>
     </div>
     <div class="hero-right">
-      <!-- Replace with your hero image: <img src="your-image.jpg" alt="..." style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"> -->
       <div class="hero-placeholder">
         <div class="hero-placeholder-icon">🌸</div>
         <div class="hero-placeholder-text">Hero image</div>
@@ -656,7 +628,6 @@
 
 <div class="divider"><div class="divider-line"></div>✿<div class="divider-line"></div></div>
 
-<!-- ============ COLLECTION / SHOP ============ -->
 <section class="collection" id="collection">
   <div class="collection-header reveal">
     <p class="section-tag">Our Collection</p>
@@ -669,210 +640,114 @@
     <button class="collection-tab" data-tab="vases" onclick="switchTab('vases')">Vase Arrangements</button>
   </div>
 
-  <!-- BOUQUETS -->
   <div class="collection-panel active" data-panel="bouquets">
     <div class="product-grid">
       <div class="product-card reveal">
-        <div class="product-img">
-          <div class="product-placeholder grad-1">
-            <div class="product-placeholder-icon">🌷</div>
-            <div class="product-placeholder-label">Photo</div>
-          </div>
-        </div>
+        <div class="product-img"><div class="product-placeholder grad-1"><div class="product-placeholder-icon">🌷</div><div class="product-placeholder-label">Photo</div></div></div>
         <div class="product-info">
           <h3 class="product-name">Morning Bloom</h3>
           <p class="product-desc">A soft, sun-warmed mix of roses, ranunculus, and greenery. Perfect for brightening someone's day.</p>
-          <div class="product-bottom">
-            <span class="product-price">$45</span>
-            <a href="#contact" class="product-order">Order →</a>
-          </div>
+          <div class="product-bottom"><span class="product-price">$45</span><a href="#contact" class="product-order">Order →</a></div>
         </div>
       </div>
       <div class="product-card reveal" style="transition-delay:0.1s">
-        <div class="product-img">
-          <div class="product-placeholder grad-2">
-            <div class="product-placeholder-icon">💐</div>
-            <div class="product-placeholder-label">Photo</div>
-          </div>
-        </div>
+        <div class="product-img"><div class="product-placeholder grad-2"><div class="product-placeholder-icon">💐</div><div class="product-placeholder-label">Photo</div></div></div>
         <div class="product-info">
           <h3 class="product-name">Garden Romance</h3>
           <p class="product-desc">Lush peonies, dahlias, and eucalyptus wrapped in kraft paper. Bold and romantic.</p>
-          <div class="product-bottom">
-            <span class="product-price">$65</span>
-            <a href="#contact" class="product-order">Order →</a>
-          </div>
+          <div class="product-bottom"><span class="product-price">$65</span><a href="#contact" class="product-order">Order →</a></div>
         </div>
       </div>
       <div class="product-card reveal" style="transition-delay:0.2s">
-        <div class="product-img">
-          <div class="product-placeholder grad-3">
-            <div class="product-placeholder-icon">🌿</div>
-            <div class="product-placeholder-label">Photo</div>
-          </div>
-        </div>
+        <div class="product-img"><div class="product-placeholder grad-3"><div class="product-placeholder-icon">🌿</div><div class="product-placeholder-label">Photo</div></div></div>
         <div class="product-info">
           <h3 class="product-name">Wildflower Wrap</h3>
           <p class="product-desc">A casual, gathered-from-the-meadow feel. Seasonal wildflowers and textured greens.</p>
-          <div class="product-bottom">
-            <span class="product-price">$40</span>
-            <a href="#contact" class="product-order">Order →</a>
-          </div>
+          <div class="product-bottom"><span class="product-price">$40</span><a href="#contact" class="product-order">Order →</a></div>
         </div>
       </div>
       <div class="product-card reveal">
-        <div class="product-img">
-          <div class="product-placeholder grad-4">
-            <div class="product-placeholder-icon">🌹</div>
-            <div class="product-placeholder-label">Photo</div>
-          </div>
-        </div>
+        <div class="product-img"><div class="product-placeholder grad-4"><div class="product-placeholder-icon">🌹</div><div class="product-placeholder-label">Photo</div></div></div>
         <div class="product-info">
           <h3 class="product-name">Sunset Blush</h3>
           <p class="product-desc">Warm corals, peach tones, and dusty pink. Like golden hour in your hands.</p>
-          <div class="product-bottom">
-            <span class="product-price">$55</span>
-            <a href="#contact" class="product-order">Order →</a>
-          </div>
+          <div class="product-bottom"><span class="product-price">$55</span><a href="#contact" class="product-order">Order →</a></div>
         </div>
       </div>
       <div class="product-card reveal" style="transition-delay:0.1s">
-        <div class="product-img">
-          <div class="product-placeholder grad-5">
-            <div class="product-placeholder-icon">🌼</div>
-            <div class="product-placeholder-label">Photo</div>
-          </div>
-        </div>
+        <div class="product-img"><div class="product-placeholder grad-5"><div class="product-placeholder-icon">🌼</div><div class="product-placeholder-label">Photo</div></div></div>
         <div class="product-info">
           <h3 class="product-name">Petite Posy</h3>
           <p class="product-desc">Small but mighty. A tight, cheerful bundle for a desk, bedside table, or just because.</p>
-          <div class="product-bottom">
-            <span class="product-price">$30</span>
-            <a href="#contact" class="product-order">Order →</a>
-          </div>
+          <div class="product-bottom"><span class="product-price">$30</span><a href="#contact" class="product-order">Order →</a></div>
         </div>
       </div>
       <div class="product-card reveal" style="transition-delay:0.2s">
-        <div class="product-img">
-          <div class="product-placeholder grad-6">
-            <div class="product-placeholder-icon">🪻</div>
-            <div class="product-placeholder-label">Photo</div>
-          </div>
-        </div>
+        <div class="product-img"><div class="product-placeholder grad-6"><div class="product-placeholder-icon">🪻</div><div class="product-placeholder-label">Photo</div></div></div>
         <div class="product-info">
           <h3 class="product-name">Grand Statement</h3>
           <p class="product-desc">Our biggest hand-tied arrangement. Overflowing with premium blooms for when more is more.</p>
-          <div class="product-bottom">
-            <span class="product-price">$85</span>
-            <a href="#contact" class="product-order">Order →</a>
-          </div>
+          <div class="product-bottom"><span class="product-price">$85</span><a href="#contact" class="product-order">Order →</a></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- VASE ARRANGEMENTS -->
   <div class="collection-panel" data-panel="vases">
     <div class="product-grid">
       <div class="product-card reveal">
-        <div class="product-img">
-          <div class="product-placeholder grad-3">
-            <div class="product-placeholder-icon">🏺</div>
-            <div class="product-placeholder-label">Photo</div>
-          </div>
-        </div>
+        <div class="product-img"><div class="product-placeholder grad-3"><div class="product-placeholder-icon">🏺</div><div class="product-placeholder-label">Photo</div></div></div>
         <div class="product-info">
           <h3 class="product-name">Tabletop Garden</h3>
           <p class="product-desc">A lush, low arrangement in a ceramic vase. Ready to place and enjoy immediately.</p>
-          <div class="product-bottom">
-            <span class="product-price">$60</span>
-            <a href="#contact" class="product-order">Order →</a>
-          </div>
+          <div class="product-bottom"><span class="product-price">$60</span><a href="#contact" class="product-order">Order →</a></div>
         </div>
       </div>
       <div class="product-card reveal" style="transition-delay:0.1s">
-        <div class="product-img">
-          <div class="product-placeholder grad-1">
-            <div class="product-placeholder-icon">🌺</div>
-            <div class="product-placeholder-label">Photo</div>
-          </div>
-        </div>
+        <div class="product-img"><div class="product-placeholder grad-1"><div class="product-placeholder-icon">🌺</div><div class="product-placeholder-label">Photo</div></div></div>
         <div class="product-info">
           <h3 class="product-name">Centerpiece Classic</h3>
           <p class="product-desc">A full, structured arrangement designed to anchor a dining table or entryway.</p>
-          <div class="product-bottom">
-            <span class="product-price">$75</span>
-            <a href="#contact" class="product-order">Order →</a>
-          </div>
+          <div class="product-bottom"><span class="product-price">$75</span><a href="#contact" class="product-order">Order →</a></div>
         </div>
       </div>
       <div class="product-card reveal" style="transition-delay:0.2s">
-        <div class="product-img">
-          <div class="product-placeholder grad-5">
-            <div class="product-placeholder-icon">🌸</div>
-            <div class="product-placeholder-label">Photo</div>
-          </div>
-        </div>
+        <div class="product-img"><div class="product-placeholder grad-5"><div class="product-placeholder-icon">🌸</div><div class="product-placeholder-label">Photo</div></div></div>
         <div class="product-info">
           <h3 class="product-name">Bud Vase Trio</h3>
           <p class="product-desc">Three small bud vases, each with a single bloom or sprig. Minimal and modern.</p>
-          <div class="product-bottom">
-            <span class="product-price">$45</span>
-            <a href="#contact" class="product-order">Order →</a>
-          </div>
+          <div class="product-bottom"><span class="product-price">$45</span><a href="#contact" class="product-order">Order →</a></div>
         </div>
       </div>
       <div class="product-card reveal">
-        <div class="product-img">
-          <div class="product-placeholder grad-4">
-            <div class="product-placeholder-icon">🪷</div>
-            <div class="product-placeholder-label">Photo</div>
-          </div>
-        </div>
+        <div class="product-img"><div class="product-placeholder grad-4"><div class="product-placeholder-icon">🪷</div><div class="product-placeholder-label">Photo</div></div></div>
         <div class="product-info">
           <h3 class="product-name">Statement Urn</h3>
           <p class="product-desc">A dramatic, tall arrangement in a sculpted vessel. For spaces that deserve presence.</p>
-          <div class="product-bottom">
-            <span class="product-price">$95</span>
-            <a href="#contact" class="product-order">Order →</a>
-          </div>
+          <div class="product-bottom"><span class="product-price">$95</span><a href="#contact" class="product-order">Order →</a></div>
         </div>
       </div>
     </div>
   </div>
-
 </section>
 
-<!-- ============ EVENTS & WEDDINGS PORTFOLIO ============ -->
 <section class="portfolio" id="events">
   <div class="portfolio-header reveal">
     <p class="section-tag">Events &amp; Weddings</p>
     <h2 class="section-title">Florals we've <em>designed</em></h2>
     <p class="portfolio-subtitle">Every event is different. We work with you on colors, scale, and style, then handle everything from sourcing to on-site setup. Pricing is bespoke.</p>
   </div>
-
   <div class="portfolio-grid">
     <div class="portfolio-card reveal">
-      <div class="portfolio-img">
-        <div class="product-placeholder grad-5">
-          <div class="product-placeholder-icon">💐</div>
-          <div class="product-placeholder-label">Event photo</div>
-        </div>
-      </div>
+      <div class="portfolio-img"><div class="product-placeholder grad-5"><div class="product-placeholder-icon">💐</div><div class="product-placeholder-label">Event photo</div></div></div>
       <div class="portfolio-info">
         <span class="portfolio-type">Wedding</span>
         <h3 class="portfolio-name">Ariel &amp; Jason</h3>
         <p class="portfolio-desc">Full ceremony and reception florals. Bridal bouquet, centerpieces, arch arrangement, and welcome display.</p>
       </div>
     </div>
-
     <div class="portfolio-card reveal" style="transition-delay:0.1s">
-      <div class="portfolio-img">
-        <div class="product-placeholder grad-1">
-          <div class="product-placeholder-icon">🌸</div>
-          <div class="product-placeholder-label">Event photo</div>
-        </div>
-      </div>
+      <div class="portfolio-img"><div class="product-placeholder grad-1"><div class="product-placeholder-icon">🌸</div><div class="product-placeholder-label">Event photo</div></div></div>
       <div class="portfolio-info">
         <span class="portfolio-type">Event</span>
         <h3 class="portfolio-name">Your Event Here</h3>
@@ -880,7 +755,6 @@
       </div>
     </div>
   </div>
-
   <div class="portfolio-services reveal">
     <h3 class="portfolio-services-title">What we can do for your event</h3>
     <div class="portfolio-services-grid">
@@ -892,7 +766,6 @@
       <div class="portfolio-service-item">✿ Corporate events &amp; private parties</div>
     </div>
   </div>
-
   <div class="portfolio-cta reveal">
     <p class="portfolio-sister">Need wedding planning too? <a href="https://www.tuplanners.com" target="_blank">Tu Planners</a></p>
     <a href="#contact" class="btn-primary">Request a Quote</a>
@@ -901,14 +774,12 @@
 
 <div class="divider"><div class="divider-line"></div>✿<div class="divider-line"></div></div>
 
-<!-- ============ PROCESS ============ -->
 <section class="process" id="process">
   <div class="process-header reveal">
     <p class="section-tag">How It Works</p>
     <h2 class="section-title">From studio to <em>your door</em></h2>
   </div>
   <p class="process-subtitle reveal">Whether you're ordering a single bouquet or planning event florals, here's what to expect.</p>
-
   <div class="process-steps">
     <div class="process-step reveal">
       <div class="process-icon">🌱</div>
@@ -933,10 +804,8 @@
   </div>
 </section>
 
-<!-- ============ ABOUT ============ -->
 <section class="about" id="about">
   <div class="about-image reveal">
-    <!-- Replace with your photo: <img src="your-image.jpg" alt="..." style="width:100%;height:100%;object-fit:cover"> -->
     <div class="about-placeholder">
       <div class="about-placeholder-icon">📷</div>
       <div class="about-placeholder-label">Team photo</div>
@@ -958,60 +827,39 @@
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
 <section class="faq" id="faq">
   <div class="faq-header reveal">
     <p class="section-tag">Questions</p>
     <h2 class="section-title">Good things <em>to know</em></h2>
   </div>
-
   <div class="faq-list reveal" style="transition-delay:0.1s">
     <details class="faq-item">
-      <summary>
-        <span class="faq-q">How far in advance should I order?</span>
-        <span class="faq-toggle" aria-hidden="true">+</span>
-      </summary>
+      <summary><span class="faq-q">How far in advance should I order?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
       <div class="faq-answer">For everyday bouquets and arrangements, 2–3 days notice is ideal so we can source the freshest blooms. For event florals, we recommend reaching out at least 4–6 weeks ahead, though we'll always do our best for shorter timelines.</div>
     </details>
     <details class="faq-item">
-      <summary>
-        <span class="faq-q">Do you deliver?</span>
-        <span class="faq-toggle" aria-hidden="true">+</span>
-      </summary>
+      <summary><span class="faq-q">Do you deliver?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
       <div class="faq-answer">Yes! We offer local delivery across the Chicago area. Delivery fees vary by distance and are shared when you place your order. Pickup from our studio is always free. For events, our team handles full on-site setup and breakdown.</div>
     </details>
     <details class="faq-item">
-      <summary>
-        <span class="faq-q">Can I customize an arrangement?</span>
-        <span class="faq-toggle" aria-hidden="true">+</span>
-      </summary>
+      <summary><span class="faq-q">Can I customize an arrangement?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
       <div class="faq-answer">Absolutely. If you have a color palette, a favorite flower, or a specific vibe in mind, let us know and we'll design something just for you. We love custom work, and it's where we get to be most creative.</div>
     </details>
     <details class="faq-item">
-      <summary>
-        <span class="faq-q">What if I don't know what I want?</span>
-        <span class="faq-toggle" aria-hidden="true">+</span>
-      </summary>
+      <summary><span class="faq-q">What if I don't know what I want?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
       <div class="faq-answer">That's completely fine. Tell us the occasion, your budget, and any colors or feelings you're drawn to, and we'll put together something you'll love. Some of our favorite arrangements have started with "I have no idea, surprise me."</div>
     </details>
     <details class="faq-item">
-      <summary>
-        <span class="faq-q">Do you do weddings?</span>
-        <span class="faq-toggle" aria-hidden="true">+</span>
-      </summary>
-      <div class="faq-answer">We do! We design bridal bouquets, ceremony florals, centerpieces, and full venue installations. We're part of the <a href="https://www.tuplanners.com" target="_blank" style="color:var(--green-dark);text-decoration:none;border-bottom:1px solid rgba(90,138,110,0.3)">Tu Planners</a> family, so if you need both wedding planning and florals, we can make that seamless. Reach out and we'll put together a custom proposal.</div>
+      <summary><span class="faq-q">Do you do weddings?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
+      <div class="faq-answer">We do! We design bridal bouquets, ceremony florals, centerpieces, and full venue installations. We're part of the <a href="https://www.tuplanners.com" target="_blank">Tu Planners</a> family, so if you need both wedding planning and florals, we can make that seamless. Reach out and we'll put together a custom proposal.</div>
     </details>
     <details class="faq-item">
-      <summary>
-        <span class="faq-q">How do I care for fresh flowers?</span>
-        <span class="faq-toggle" aria-hidden="true">+</span>
-      </summary>
+      <summary><span class="faq-q">How do I care for fresh flowers?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
       <div class="faq-answer">Trim the stems at an angle when you receive them, change the water every 2–3 days, and keep them out of direct sunlight and away from fruit (the ethylene speeds up wilting). Every order comes with a care card with specific tips for the blooms in your arrangement.</div>
     </details>
   </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
   <div class="contact-info reveal">
     <p class="section-tag">Get in Touch</p>
@@ -1064,21 +912,9 @@
         <option>Something else</option>
       </select>
     </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label class="form-label">Date needed</label>
-        <input type="date" class="form-input" id="formDate">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Budget range</label>
-        <select class="form-select" id="formBudget">
-          <option>Under $50</option>
-          <option>$50–$100</option>
-          <option>$100–$250</option>
-          <option>$250+</option>
-          <option>Not sure yet</option>
-        </select>
-      </div>
+    <div class="form-group">
+      <label class="form-label">Date needed</label>
+      <input type="date" class="form-input" id="formDate">
     </div>
     <div class="form-group">
       <label class="form-label">Tell us more</label>
@@ -1088,7 +924,6 @@
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
 <footer>
   <div class="footer-top">
     <div>
@@ -1104,7 +939,6 @@
 </footer>
 
 <script>
-  /* MOBILE MENU */
   function toggleMenu() {
     var isOpen = document.body.classList.toggle('menu-open');
     document.getElementById('navToggle').setAttribute('aria-expanded', isOpen ? 'true' : 'false');
@@ -1122,7 +956,6 @@
   window.addEventListener('resize', function() { if (window.innerWidth > 1024) closeMenu(); });
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
 
-  /* COLLECTION TABS */
   function switchTab(tabName) {
     document.querySelectorAll('.collection-tab').forEach(function(t) {
       t.classList.toggle('active', t.getAttribute('data-tab') === tabName);
@@ -1130,20 +963,17 @@
     document.querySelectorAll('.collection-panel').forEach(function(p) {
       p.classList.toggle('active', p.getAttribute('data-panel') === tabName);
     });
-    // Re-trigger reveal for newly visible cards
     document.querySelectorAll('.collection-panel.active .reveal:not(.visible)').forEach(function(el) {
       var rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight) el.classList.add('visible');
     });
   }
 
-  /* CONTACT FORM → MAILTO */
   function handleSubmit(btn) {
     var name = (document.getElementById('formName') || {}).value || '';
     var email = (document.getElementById('formEmail') || {}).value || '';
     var type = (document.getElementById('formType') || {}).value || '';
     var date = (document.getElementById('formDate') || {}).value || '';
-    var budget = (document.getElementById('formBudget') || {}).value || '';
     var message = (document.getElementById('formMessage') || {}).value || '';
 
     var subject = 'New flower inquiry from ' + (name || 'Pebble & Petals website');
@@ -1152,7 +982,6 @@
       'Email: ' + email,
       'Looking for: ' + type,
       'Date needed: ' + date,
-      'Budget: ' + budget,
       '',
       'Message:',
       message
@@ -1167,7 +996,6 @@
     btn.style.background = '#5a8a6e';
   }
 
-  /* SCROLL REVEAL */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function(entries) {
@@ -1178,14 +1006,10 @@
         }
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
     reveals.forEach(function(el) {
       var rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight) {
-        el.classList.add('visible');
-      } else {
-        observer.observe(el);
-      }
+      if (rect.top < window.innerHeight) { el.classList.add('visible'); }
+      else { observer.observe(el); }
     });
   } else {
     reveals.forEach(function(el) { el.classList.add('visible'); });
